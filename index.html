@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">  
+  <link rel="icon" type="image/png" href="../static/img/favicon.png">
+  <link rel="stylesheet" href="static/style.css">  <!-- Enlaza el archivo CSS para estilos -->
+  <title>EcoHuella: Tu Guía Verde para un Planeta Sostenible</title> <!-- Título de la página que aparece en la pestaña del navegador -->
+</head>
+
+
+<body> <!-- Cuerpo de la página web -->
+  <!-- Nueva barra de navegación -->
+  <nav class="navbar">
+    <a href="/" class="nav-link">Inicio</a> <!-- Enlace a la página de inicio -->
+    <a href="/modo_educativo" class="nav-link">Modo Educativo</a><!-- Enlace al modo educativo -->
+  </nav>
+
+  <div id="welcome-screen" class="welcome-screen">
+    <img id="ecohuella-img" src="{{ url_for('static', filename='img/ecohuella.png') }}" alt="EcoHuella" class="welcome-img">
+  </div>
+  <header class="header">
+    <div class="header__text">
+      <h1>Descubre tu Huella de Carbono con EcoHuella</h1>
+      <p>¡Calcula, reduce y salva el planeta! Responde preguntas simples sobre tu estilo de vida y obtén consejos personalizados para un futuro sostenible.</p>
+    </div>
+  </header>
+
+
+
+
+  <main class="background-decor">
+    <!-- Contenedor de hojitas -->
+    <div class="leaves-container">
+      <div class="leaf">🍃</div>
+      <div class="leaf">🍃</div>
+      <div class="leaf">🍃</div>
+      <div class="leaf">🍃</div>
+      <div class="leaf">🍃</div>
+      <div class="leaf">🍃</div>
+      <div class="leaf">🍃</div>
+      <div class="leaf">🍃</div>
+      <div class="leaf">🍃</div>
+      <div class="leaf">🍃</div>
+    </div>
+
+    
+    {% block content %} <!-- Bloque de Jinja2 para contenido dinámico -->
+    <h2 class="main__title">Descubre tu Huella de Carbono</h2>
+    <ul class="list categories"> <!-- Lista de categorías -->
+      <li class="list__item"> <!-- Elemento de lista -->
+        <a href="/transporte" class="category-link transporte">
+          <img class="item__img" src="../static/img/transporte.png" alt="home">
+          <span>Transporte</span></a>
+        </a>
+      </li>
+      
+
+      <li class="list__item">
+        <a href="/electricidad" class="category-link electricidad">
+          <img class="item__img" src="../static/img/electricidad.png" alt="home">
+          <span>Electricidad</span></a>
+        </a>
+
+      </li>
+      <li class="list__item">
+        <a href="/residuos" class="category-link residuos">
+          <img class="item__img" src="../static/img/residuos.png" alt="home">
+          <span>Residuos</span>
+        </a>
+      
+      </li>
+    </ul>
+    {% endblock %}
+  </main>
+
+
+
+<script> // abre bloque de codigo JavaScript para manejar la pantalla de bienvenida
+  document.getElementById('ecohuella-img').addEventListener('click', function() { // Agrega un evento de clic a la imagen
+    document.getElementById('welcome-screen').style.display = 'none'; // Oculta la pantalla de bienvenida
+    // El resto de la página se muestra automáticamente
+  });
+</script>
+</body>
+</html>
